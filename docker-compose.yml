@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+    qbittorrrent:
+        container_name: qBittorrrent
+        build: .
+        volumes:
+            - $PWD/downloads:/opt/download
+            - $PWD/root:/root
+        tty: true
+        restart: always
+        networks:
+                download:
+
+
+networks:
+    download:
+        name: download_network
