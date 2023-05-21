@@ -1,12 +1,13 @@
 # qBittorrent-Enhanced-Edition Docker
 
-
 ## 🎶Run
 
 ```bash
 docker-compose up
 ```
 
->  username: admin
+> http://`<your-ip>:8080`
 >
->  password: adminadmin
+> username: admin
+>
+> password: adminadmin
