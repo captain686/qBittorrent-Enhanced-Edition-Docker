@@ -4,8 +4,10 @@ services:
         container_name: qBittorrrent
         build: .
         volumes:
-            - $PWD/downloads:/opt/download
+            # - $PWD/downloads:/opt/download
             - $PWD/root:/root
+        ports:
+            - 8080:8080
         tty: true
         restart: always
         networks:
@@ -14,4 +16,5 @@ services:
 
 networks:
     download:
-        name: download_network
+        name: "download_network"
+        driver: "bridge"
