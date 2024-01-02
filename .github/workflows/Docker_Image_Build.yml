@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   # push:
   #   branches: [ "main" ]
+  schedule:
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 env:
@@ -29,7 +31,7 @@ jobs:
         git config user.name "github-actions[bot]"
         git add .
         git commit -m "🚀 $(cat qbittorrent-nox_version)"
-        
+
     - name: push changes
       uses: ad-m/github-push-action@master
       with:
