@@ -1,7 +1,9 @@
 # qBittorrent-Enhanced-Edition docker image
 
 ## 😊 use
+
 `docker-compose.yml`
+
 ```yml
 version: '3.5'
 services:
@@ -13,7 +15,9 @@ services:
             - $PWD/downloads:/opt/download
         tty: true
         restart: always
+        network_mode: host
 ```
+
 ```bash
 docker-compose up -d
 ```
