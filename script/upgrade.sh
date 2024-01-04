@@ -13,14 +13,16 @@ upgrade(){
     rm -rf qbittorrent-enhanced-nox_x86_64-linux-musl_static.zip
 }
 
-if [ -f "/qbittorrent/qbittorrent-nox" ];then
-    version=$(qbittorrent-nox -v | awk '{print $2}')
-    if [ $version -ne $last_version ];then
-        upgrade $last_version
-    fi
-else
-    echo 'Install qBittorrent ... '
-    upgrade $last_version
-fi
+upgrade $last_version
+
+# if [ -f "/qbittorrent/qbittorrent-nox" ];then
+#    version=$(qbittorrent-nox -v | awk '{print $2}')
+#    if [ $version -ne $last_version ];then
+#        upgrade $last_version
+#    fi
+#else
+#    echo 'Install qBittorrent ... '
+#    upgrade $last_version
+#fi
 
 chmod 777 /qbittorrent/qbittorrent-nox
