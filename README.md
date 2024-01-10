@@ -17,7 +17,7 @@ services:
         restart: always
         network_mode: host
 ```
-
+> 启动后获取`admin`默认密码
 ```bash
-docker-compose up -d
+docker-compose up
 ```
