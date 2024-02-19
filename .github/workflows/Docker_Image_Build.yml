@@ -19,6 +19,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: check update
       run: |
+        export update=false
         chmod 777 check.sh
         export update=$(./check.sh)
         echo "UPDATE=$update" >> $GITHUB_ENV
