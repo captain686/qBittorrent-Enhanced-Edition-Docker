@@ -10,11 +10,3 @@ services:
     tty: true
     restart: always
     network_mode: host
-
-volumes:
-  root:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: $PWD/root
