@@ -12,7 +12,7 @@ services:
     container_name: qBittorrrent
     image: captain686/qbittorrent
     volumes:
-      - $PWD/root:/root
+      - root:/root
       - $PWD/downloads:/opt/download
     tty: true
     restart: always
