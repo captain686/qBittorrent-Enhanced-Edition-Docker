@@ -6,7 +6,7 @@ releases_status=$(curl -sIL -w "%{http_code}" -o /dev/null https://github.com/c0
 
 if [ -f "qbittorrent-nox_version" ];then
     version=$(cat qbittorrent-nox_version)
-    if [ "$version" != "$last_version" ];then
+    if [ "$version" != "$last_version" ] && [ "$releases_status" == "200" ];then
         echo $last_version > qbittorrent-nox_version
         echo 'true'
     fi
