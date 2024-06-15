@@ -23,14 +23,6 @@ jobs:
         chmod 777 check.sh
         export update=$(./check.sh)
         echo "UPDATE=$update" >> $GITHUB_ENV
-        
-    - name: git push
-      if: ${{ env.UPDATE == 'true' }}
-      run: |
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config user.name "github-actions[bot]"
-        git add .
-        git commit -m "🚀 $(cat qbittorrent-nox_version)"
 
     - name: push changes
       if: ${{ env.UPDATE == 'true' }}
@@ -53,3 +45,11 @@ jobs:
     - name: Push Image To DockerHub
       if: ${{ env.UPDATE == 'true' }}
       run: docker push captain686/qbittorrent:latest
+
+    - name: git push
+      if: ${{ env.UPDATE == 'true' }}
+      run: |
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        git add .
+        git commit -m "🚀 $(cat qbittorrent-nox_version)"
