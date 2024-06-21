@@ -23,13 +23,7 @@ jobs:
         chmod 777 check.sh
         export update=$(./check.sh)
         echo "UPDATE=$update" >> $GITHUB_ENV
-
-    - name: push changes
-      if: ${{ env.UPDATE == 'true' }}
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.PERSONAL_TOKEN }}
-
+        
     - name: Login to DockerHub
       if: ${{ env.UPDATE == 'true' }}
       uses: docker/login-action@v1
@@ -53,3 +47,9 @@ jobs:
         git config user.name "github-actions[bot]"
         git add .
         git commit -m "🚀 $(cat qbittorrent-nox_version)"
+
+    - name: push changes
+      if: ${{ env.UPDATE == 'true' }}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
