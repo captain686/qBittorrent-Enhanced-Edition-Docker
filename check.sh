@@ -4,7 +4,7 @@
 latest_tag=$(wget -qO- "https://api.github.com/repos/c0re100/qBittorrent-Enhanced-Edition/releases/latest" 2>/dev/null | grep '"tag_name"' | head -n1 | awk -F'"' '{print $4}')
 
 # Define download URL
-download_url="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/download/  ${latest_tag}/qbittorrent-enhanced-nox_x86_64-linux-musl_static.zip"
+download_url="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/download/${latest_tag}/qbittorrent-enhanced-nox_x86_64-linux-musl_static.zip"
 
 # Check if the file exists on the server
 http_code=$(curl -sIL -w "%{http_code}" "${download_url}" -o /dev/null)
